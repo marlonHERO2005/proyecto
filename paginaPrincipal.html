@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>skin store</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: #0E4F57;
+      }
+      .Bienvenida {
+    width: 400px;
+    height: 340px;
+    background: #2096a2;
+    margin: auto;
+    margin-top: 90px;
+    box-shadow: 7px 13px 37px #2BCAC9;
+    padding: 20px 30px;
+    border-top: 4px solid #2096a2;
+    color: white;
+    text-align: center;
+      }
+      .boton1 {
+        width: 100%;
+    height: 40px;
+    background: #017bab;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    margin-bottom: 16px;
+    margin-top: 20px;
+      }
+      h2 {
+      color: white;
+      font-size: 28px;
+      margin: 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+    p {
+      color: white;
+      font-size: 16px;
+      line-height: 1.5;
+      text-align: center;
+    }
+    </style>
+</head>
+<body>
+    <header>
+      <div class="menú">
+        <nav>
+            <ul>
+              <li><a href="index.html">Inicio</a></li>
+              <li><a href="cita.html">Citas</a></li>
+              <li><a href="servicios.html">Servicios</a></li>
+              <li><a href="CalculadoraMacros.html">Cálculo de Macros</a></li>
+            </ul>
+          </nav>
+          </div>
+        <h1>SKIN STORE</h1>
+        <h3>Estetica</h3>
+      </header>
+    
+      <main>
+        <section>
+          <section class="Bienvenida">
+          <h2>Bienvenido a Skin store<br>
+            Centro de estética</h2>
+            <button class="boton1" type= "submit">Reserva tu cita</button>
+          </section>
+          <h2>¿Quienes somos?</h2>
+          <p> Nos complace compartir nuestra historia y nuestros valores con nuestros clientes.<br> 
+            Aquí te ofrecemos una descripción de lo que encontrarás:<br>
+          </p>
+          <p>
+
+            En nuestra estética, nos dedicamos a brindar un servicio excepcional y cuidado personalizado a nuestros clientes. <br>
+            Con años de experiencia en el campo de la belleza y el bienestar, nos enorgullece ofrecer una amplia gama de tratamientos faciales, <br>
+            corporales y servicios de relajación.
+          </p>
+          <p>
+            
+            Nuestro equipo de profesionales altamente capacitados y apasionados está comprometido en ayudarte a realzar tu belleza natural <br> 
+            y mejorar tu bienestar general. Nos mantenemos al tanto de las últimas tendencias y técnicas en el cuidado de la piel y nos esforzamos<br> 
+            por utilizar productos de alta calidad que sean seguros y efectivos.
+          </p>
+          <p>
+            
+            En nuestra estética, creemos en la importancia de crear un ambiente cálido, acogedor y relajante para nuestros clientes.<br> 
+            Queremos que te sientas cómodo y cuidado desde el momento en que cruzas nuestras puertas. Nuestra atención personalizada<br> 
+            y servicio amable nos distinguen y nos permiten construir relaciones duraderas con nuestros clientes.
+          </p>
+          <p>
+            
+            Además, valoramos la honestidad, la integridad y la confianza en todas nuestras interacciones.<br> 
+            Nos esforzamos por brindarte una experiencia satisfactoria y resultados excepcionales en cada visita.
+          </p>
+          <p>
+            
+            Ya sea que estés buscando un tratamiento facial rejuvenecedor, un masaje relajante o un servicio de cuidado de la piel personalizado,<br> 
+            estamos aquí para ayudarte a sentirte y lucir lo mejor posible.
+          </p>
+          <p>
+            
+            ¡Te invitamos a visitarnos y descubrir la diferencia en nuestra estética! Esperamos poder atenderte y proporcionarte un servicio excepcional<br> 
+            que te haga sentir renovado, revitalizado y confiado en tu propia belleza.</p>
+          <div class="content">
+          <h2>Comunícate con nosotros</h2>
+          <form class="form-contact" action="enviar_correo.php" method="POST">
+            <label for="nombre">Nombre:</label>
+            <input class="controls" type="text" id="nombre" name="nombre" required>
+        
+            <label for="correo">Correo electrónico:</label>
+            <input class="controls" type="email" id="correo" name="correo" required>
+        
+            <label for="mensaje">Mensaje:</label>
+            <textarea class="controls" id="mensaje" name="mensaje" required></textarea>
+        
+            <input class="buttons" type="submit" value="Enviar">
+          </form>
+          </div>
+          
+        </section>
+      </main>
+    
+      <footer>
+        <p>© 2023 Software de Estética. Todos los derechos reservados.</p>
+      </footer>
+    
+      <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora macros</title>
+    <style>
+      body {
+        background-color: #0E4F57;
+        
+        .Calculadora {
+    width: 400px;
+    height: 340px;
+    background: #2096a2;
+    margin: auto;
+    margin-top: 180px;
+    box-shadow: 7px 13px 37px #2BCAC9;
+    padding: 20px 30px;
+    border-top: 4px solid #2096a2;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+      }
+      .dato {
+        margin-top: 20px;
+        border-radius: 5px;
+      }
+    }
+    </style>
+</head>
+<body>
+  <section class="Calculadora">
+  <h1>Calculadora de Macros</h1>
+
+  <form>
+    <label for="peso">Peso (kg):</label>
+    <input class="dato" type="number" id="peso" name="peso" required><br>
+
+    <label for="altura">Altura (cm):</label>
+    <input class="dato" type="number" id="altura" name="altura" required><br>
+
+    <label for="edad">Edad:</label>
+    <input class="dato" type="number" id="edad" name="edad" required><br>
+
+    <label for="ejercicio">Ejercicio por semana:</label>
+    <select class="dato" id="ejercicio" name="ejercicio" required>
+      <option value="0">Ninguno</option>
+      <option value="1">1-2 veces</option>
+      <option value="2">3-4 veces</option>
+      <option value="3">5-6 veces</option>
+      <option value="4">7 o más veces</option>
+    </select><br>
+
+    <label for="objetivo">Objetivo:</label>
+    <select class="dato" id="objetivo" name="objetivo" required>
+      <option value="mantener">Mantener peso</option>
+      <option value="perder">Perder peso</option>
+      <option value="ganar">Ganar peso</option>
+    </select><br>
+
+    <button class="dato" type="submit">Calcular</button>
+  </form>
+</section>
+  <div id="resultado"></div>
+
+<script>
+  // Código JavaScript para calcular las macros y mostrar los resultados
+  document.querySelector('form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Obtener los valores de los campos
+    var peso = parseInt(document.getElementById('peso').value);
+    var altura = parseInt(document.getElementById('altura').value);
+    var edad = parseInt(document.getElementById('edad').value);
+    var ejercicio = parseInt(document.getElementById('ejercicio').value);
+    var objetivo = document.getElementById('objetivo').value;
+
+    // Calcular las macros según la fórmula correspondiente
+    var caloriasBase = 10 * peso + 6.25 * altura - 5 * edad;
+    var caloriasEjercicio = caloriasBase * (1.2 + ejercicio * 0.15);
+
+    var proteinas = objetivo === 'mantener' ? peso * 2.2 : objetivo === 'ganar' ? peso * 2.5 : peso * 1.8;
+    var carbohidratos = caloriasEjercicio * 0.5 / 4; // Suponiendo 50% de carbohidratos
+    var grasas = caloriasEjercicio * 0.3 / 9; // Suponiendo 30% de grasas
+
+    var notificationMessage = 'Tus macros son:\n' +
+                'Proteínas: ' + proteinas.toFixed(2) + ' g\n' +
+                'Carbohidratos: ' + carbohidratos.toFixed(2) + ' g\n' +
+                'Grasas: ' + grasas.toFixed(2) + ' g';
+
+            // Mostrar la notificación
+            if (Notification.permission === 'granted') {
+                new Notification('Resultados de Macros', {
+                    body: notificationMessage
+                });
+            } else if (Notification.permission !== 'denied') {
+                Notification.requestPermission().then(function(permission) {
+                    if (permission === 'granted') {
+                        new Notification('Resultados de Macros', {
+                            body: notificationMessage
+                        });
+                    }
+                });
+            }
+  });
+</script>
+
+</body>
+
+</html>
